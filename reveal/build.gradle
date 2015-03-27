@@ -78,8 +78,8 @@ android.libraryVariants.all { variant ->
     }
 }
 
-def siteUrl = 'https://github.com/shohe-i'      // Homepage URL of the library
-def gitUrl = 'https://github.com/shohe-i/FuzzyDateFormatter.git'   // Git repository URL
+def siteUrl = 'https://github.com/shohe-i/AspectLogger/blob/master/README.md'      // Homepage URL of the library
+def gitUrl = 'https://github.com/shohe-i/AspectLogger.git'   // Git repository URL
 group = "com.s_hei.aspectlogger"                                        // Maven Group ID for the artifact
 version = "0.1.0"
 
