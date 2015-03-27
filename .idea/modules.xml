@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AspectLogger.iml" filepath="$PROJECT_DIR$/AspectLogger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aspect-logger-mock/aspect-logger-mock.iml" filepath="$PROJECT_DIR$/aspect-logger-mock/aspect-logger-mock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reveal/reveal.iml" filepath="$PROJECT_DIR$/reveal/reveal.iml" />
+    </modules>
+  </component>
+</project>
+
