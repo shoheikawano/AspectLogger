@@ -26,13 +26,14 @@ public class AspectRevealer {
         final long start = System.nanoTime();
         final Object result = joinPoint.proceed();
         final long stop = System.nanoTime();
-        Log.v(TAG, string((CodeSignature) joinPoint.getSignature(), start, stop));
+        Log.v(TAG, string(joinPoint, start, stop));
         return result;
     }
 
-    private static String string(CodeSignature signature, long start, long stop) {
-        final String className = signature.getDeclaringType().getSimpleName();
-        final String methodName = signature.getName();
+    private static String string(ProceedingJoinPoint joinPoint, long start, long stop) {
+        CodeSignature signature = (CodeSignature) joinPoint.getSignature();
+        String className = signature.getDeclaringType().getSimpleName();
+        String methodName = signature.getName();
         return new StringBuilder(className)
                 .append("#").append(methodName).append(" :: ")
                 .append("[").append(TimeUnit.NANOSECONDS.toMillis(stop - start)).append(" ms]").toString();

@@ -39,14 +39,9 @@ dependencies {
     compile project(':reveal')
 }
 
-final def log = project.logger
 final def variants = project.android.applicationVariants
-
+final def log = project.logger
 variants.all { variant ->
-    if (!variant.buildType.isDebuggable()) {
-        log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
-        return;
-    }
 
     JavaCompile javaCompile = variant.javaCompile
     javaCompile.doLast {
@@ -57,7 +52,6 @@ variants.all { variant ->
                          "-d", javaCompile.destinationDir.toString(),
                          "-classpath", javaCompile.classpath.asPath,
                          "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
-        log.debug "ajc args: " + Arrays.toString(args)
 
         MessageHandler handler = new MessageHandler(true);
         new Main().run(args, handler);
@@ -81,32 +75,3 @@ variants.all { variant ->
         }
     }
 }
-
-
-
-
-//apply plugin: 'com.android.application'
-//
-//android {
-//    compileSdkVersion 22
-//    buildToolsVersion "22.0.0"
-//
-//    defaultConfig {
-//        applicationId "com.s_hei.aspectlogger"
-//        minSdkVersion 15
-//        targetSdkVersion 22
-//        versionCode 1
-//        versionName "1.0"
-//    }
-//    buildTypes {
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//        }
-//    }
-//}
-//
-//dependencies {
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
-//    compile 'com.android.support:appcompat-v7:22.0.0'
-//}

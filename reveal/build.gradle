@@ -78,10 +78,10 @@ android.libraryVariants.all { variant ->
     }
 }
 
-def siteUrl = 'https://github.com/shohe-i/AspectLogger/blob/master/README.md'      // Homepage URL of the library
-def gitUrl = 'https://github.com/shohe-i/AspectLogger.git'   // Git repository URL
-group = "com.s_hei.aspectlogger"                                        // Maven Group ID for the artifact
-version = "0.1.0"
+def siteUrl = 'https://github.com/shohe-i/AspectLogger/blob/master/README.md'
+def gitUrl = 'https://github.com/shohe-i/AspectLogger.git'
+group = "com.s_hei.aspectlogger"
+version = "0.1.1"
 
 install {
     repositories.mavenInstaller {
@@ -135,10 +135,6 @@ bintray {
         publish = true
     }
 
-}
-
-
-dependencies {
 }
 
 task sourcesJar(type: Jar) {

@@ -8,7 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/aspect-logger-mock" />
+            <option value="$PROJECT_DIR$/aspect-logger-sample" />
             <option value="$PROJECT_DIR$/reveal" />
           </set>
         </option>

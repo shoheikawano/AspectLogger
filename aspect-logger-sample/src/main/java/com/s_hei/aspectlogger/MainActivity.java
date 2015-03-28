@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final Gson GSON = new Gson();
     private static final String STRING = "{\"s\":\"abcdefg\", \"i\":12345, \"l\":[\"hij\",\"klm\",\"nop\"]}";
 
     @Override
@@ -26,14 +27,16 @@ public class MainActivity extends ActionBarActivity {
         serialize();
         toJson();
 
-        /**
-            V/MainActivity﹕ com.s_hei.aspectlogger.JsonClass@5288ada4[s=abcdefg,l=[hij, klm, nop],i=12345]
-            V/AspectRevealer﹕ MainActivity#fromJson :: [50 ms]
+        /*
+            V/MainActivity﹕ com.s_hei.aspectlogger.JsonClass@9dbab9e
+            V/AspectRevealer﹕ MainActivity#parse :: [95 ms]
+            V/MainActivity﹕ com.s_hei.aspectlogger.JsonClass@c6b3313
+            V/AspectRevealer﹕ MainActivity#fromJson :: [107 ms]
             V/MainActivity﹕ {"i":12345,"l":["hij","klm","nop"],"s":"abcdef"}
-            V/AspectRevealer﹕ MainActivity#serialize :: [7 ms]
-            V/MainActivity﹕ {"s":"abcdef","l":["hij","klm","nop"],"i":12345}
-            V/AspectRevealer﹕ MainActivity#toJson :: [3 ms]
-         */
+            V/AspectRevealer﹕ MainActivity#serialize :: [90 ms]
+            V/MainActivity﹕ {"l":["hij","klm","nop"],"s":"abcdef","i":12345}
+            V/AspectRevealer﹕ MainActivity#toJson :: [52 ms]
+        */
     }
 
     @Reveal
@@ -53,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
     private static void fromJson() {
         JsonClass gsonClass = null;
         for (int i = 0; i < 1000; i++) {
-             gsonClass = new Gson().fromJson(STRING, JsonClass.class);
+            gsonClass = GSON.fromJson(STRING, JsonClass.class);
         }
         Log.v(TAG, gsonClass.toString());
     }
@@ -62,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
     private static void serialize() {
         String serialized = "";
         try {
-            for (int i = 0; i< 1000; i ++) {
+            for (int i = 0; i < 1000; i++) {
                 serialized = LoganSquare.serialize(newObject());
             }
         } catch (IOException e) {
@@ -75,7 +78,7 @@ public class MainActivity extends ActionBarActivity {
     private static void toJson() {
         String json = "";
         for (int i = 0; i < 1000; i++) {
-            json = new Gson().toJson(newObject());
+            json = GSON.toJson(newObject());
         }
         Log.v(TAG, json);
     }

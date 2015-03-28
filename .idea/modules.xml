@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AspectLogger.iml" filepath="$PROJECT_DIR$/AspectLogger.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aspect-logger-mock/aspect-logger-mock.iml" filepath="$PROJECT_DIR$/aspect-logger-mock/aspect-logger-mock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aspect-logger-sample/aspect-logger-sample.iml" filepath="$PROJECT_DIR$/aspect-logger-sample/aspect-logger-sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/reveal/reveal.iml" filepath="$PROJECT_DIR$/reveal/reveal.iml" />
     </modules>
   </component>

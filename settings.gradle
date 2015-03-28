@@ -1,1 +1,1 @@
-include ':aspect-logger-mock', ':reveal'
+include ':aspect-logger-sample', ':reveal'
