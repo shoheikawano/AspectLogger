@@ -1,5 +1,32 @@
 ## AspectLogger
-Simple aspect oriented annotation library for debugging and logging.
+
+Simple aspect oriented annotation debugging library for Android development. Development started for the purpose of 'revealing' the causes of bugs and erorrs just by simple one annotation. Ironically, `@Reveal` to your methods only does measure their execution time for now.. 
+
+(More functionality and usable annotations will be available in the future release.)
+
+MainActivity
+```java
+    @Reveal
+    private static void toJson() {
+        String json = "";
+        for (int i = 0; i < 1000; i++) {
+            json = GSON.toJson(newObject());
+        }
+    }
+```
+logcat
+
+```java
+	V/AspectRevealer﹕ MainActivity#toJson :: [62 ms]
+```
+
+Hugely inspired by and finely minified version of [JakeWharton/hugo](https://github.com/JakeWharton/hugo).
+
+## Todo
+
+- [ ] Sync to mavenCentral
+- [ ] Separate jars for annotation and library module
+- [ ] Method parameter support to extend its toString() 
 
 ## License
 
