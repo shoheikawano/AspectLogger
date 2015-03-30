@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Aspectlogger by shohe-i</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Aspectlogger</h1>
+        <h2>Simple aspect oriented annotation debugging library for Android development.</h2>
+        <a href="https://github.com/shohe-i/AspectLogger" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>
+<a id="aspectlogger" class="anchor" href="#aspectlogger" aria-hidden="true"><span class="octicon octicon-link"></span></a>AspectLogger</h2>
+
+<p>Simple aspect oriented annotation debugging library for Android development. Development started for the purpose of 'revealing' the causes of bugs and erorrs just by simple one annotation. Ironically, <code>@Reveal</code> to your methods only does measure their execution time for now.. </p>
+
+<p>(More functionality and usable annotations will be available in the future release.)</p>
+
+<p>MainActivity</p>
+
+<div class="highlight highlight-java"><pre>    @<span class="pl-smi">Reveal</span>
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">void</span> toJson() {
+        <span class="pl-smi">String</span> json <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>;
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-c1">1000</span>; i<span class="pl-k">++</span>) {
+            json <span class="pl-k">=</span> <span class="pl-c1">GSON</span><span class="pl-k">.</span>toJson(newObject());
+        }
+    }</pre></div>
+
+<p>logcat</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-smi">V</span><span class="pl-k">/</span><span class="pl-smi">AspectRevealer</span>﹕ <span class="pl-smi">MainActivity</span>#toJson <span class="pl-k">::</span> [<span class="pl-c1">62</span> ms]</pre></div>
+
+<p>Hugely inspired by and finely minified version of <a href="https://github.com/JakeWharton/hugo">JakeWharton/hugo</a>.</p>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Todo</h2>
+
+<ul>
+<li>[ ] Sync to mavenCentral</li>
+<li>[ ] Separate jars for annotation and library module</li>
+<li>[ ] Method parameter support to extend its <code>toString()</code>
+</li>
+</ul>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h2>
+
+<p>As noted in Todo, AspectLogger has not been synced to mavenCentral yet; <strong>only supports jcenter for now</strong>. Also, AspectJ is required to actually use it. I thought just adding <a href="https://github.com/uPhyca/gradle-android-aspectj-plugin">gradle-android-aspectj-plugin library</a> to your project would be the easiest way for set up. (I know all of these setup process sucks and will improve it in the future release).</p>
+
+<div class="highlight highlight-groovy"><pre>buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath <span class="pl-s"><span class="pl-pds">'</span>com.uphyca.gradle:gradle-android-aspectj-plugin:0.9.12<span class="pl-pds">'</span></span>
+  }
+}
+
+apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds">'</span>com.android.application<span class="pl-pds">'</span></span>
+apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds">'</span>android-aspectj<span class="pl-pds">'</span></span>
+
+dependencies {
+    compile(<span class="pl-s"><span class="pl-pds">'</span>com.s_hei.aspectlogger:reveal:0.1.0@aar<span class="pl-pds">'</span></span>)
+}</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<pre><code>Copyright 2015 Shohei Shaun Kawano
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/shohe-i/AspectLogger/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/shohe-i/AspectLogger/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/shohe-i/AspectLogger"></a> is maintained by <a href="https://github.com/shohe-i">shohe-i</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
