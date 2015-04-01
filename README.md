@@ -26,7 +26,29 @@ Hugely inspired by and finely minified version of [JakeWharton/hugo](https://git
 
 - [ ] Sync to mavenCentral
 - [ ] Separate jars for annotation and library module
-- [ ] Method parameter support to extend its toString() 
+- [ ] Method parameter support to extend its `toString()`
+
+## Download
+
+As noted in Todo, AspectLogger has not been synced to mavenCentral yet; **only supports jcenter for now**. Also, AspectJ is required to actually use it. I thought just adding [gradle-android-aspectj-plugin library](https://github.com/uPhyca/gradle-android-aspectj-plugin) to your project would be the easiest way for set up. (I know all of these setup process sucks and will improve it in the future release).
+
+```groovy
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.uphyca.gradle:gradle-android-aspectj-plugin:0.9.12'
+  }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'android-aspectj'
+
+dependencies {
+    compile('com.s_hei.aspectlogger:reveal:0.1.0@aar')
+}
+```
 
 ## License
 
