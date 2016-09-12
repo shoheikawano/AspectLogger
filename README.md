@@ -1,3 +1,7 @@
+# [DEPRECATED]
+
+This project is no longer maintained; if you are looking for a simple annotation based logging tool for Android development, [hugo](https://github.com/JakeWharton/hugo) may be the one you are looking for.
+
 ## AspectLogger
 
 Simple aspect oriented annotation debugging library for Android development. Development started for the purpose of 'revealing' the causes of bugs and erorrs just by simple one annotation. Ironically, `@Reveal` to your methods only does measure their execution time for now.. 
